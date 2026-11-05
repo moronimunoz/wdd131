@@ -59,6 +59,11 @@ nav a {
     font-family: Arial, sans-serif;
 }
 
+nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+
 main {
     background-color: #ccc;
     padding: 20px;
