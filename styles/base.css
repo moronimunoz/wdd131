@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Redaction 70", sans-serif;
+    font-weight: 400;
+}
+
+header span {
+    display: block;
+}
+
+nav {
+    background-color: gray;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}

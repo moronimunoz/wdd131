@@ -4,11 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta
+        description="WDD 131 – Dynamic Web Fundamentals – Moroni Muñoz - keywords: WDD 131, Dynamic Web Fundamentals, Moroni Muñoz, web development, HTML, CSS, JavaScript">
+    <meta author="Franco Moroni Muñoz">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Redaction+70:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/layout.css">
+    <script src="scripts/getdates.js" defer></script>
+
+    <title>WDD 131 – Dynamic Web Fundamentals – Moroni Muñoz</title>
 </head>
 
 <body>
-    <h1>Hello, World!!</h1>
+    <header>
+        <span class="course-title">WDD 131 – Dynamic Web Fundamentals</span>
+        <nav>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/franco-moroni-mu%C3%B1oz/">LinkedIn</a></li>
+                <li><a href="https://byupw.instructure.com/">Canvas</a></li>
+                <li><a
+                        href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7">Scripture</a>
+                </li>
+                <li><a href="final-project.html">Final Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Moroni Muñoz</h1>
+        <section class="card">
+            <h2>About Me</h2>
+            <p>Hello! My name is Moroni Muñoz, and I am a student at BYU-Idaho studying web development. I have a
+                passion for creating dynamic and user-friendly websites that provide an excellent user experience. In my
+                free time, I enjoy learning new technologies, exploring the outdoors, and spending time with my family.
+            </p>
+            <img src="images/profile.jpeg" alt="Moroni Muñoz" class="profile-image">
+            <h3>Contact Information</h3>
+            <img src="images/argentina-flag.webp" alt="Bandera de Argentina" class="flag-image">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo soluta culpa laudantium eius perferendis
+                possimus.</p>
+        </section>
+        <section class="card">
+            <h2>Web Dev Resources</h2>
+            <ul>
+                <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+                <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
+                <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span>. Moroni Muñoz. Argentina.</p>
+        <p id="lastModified"></p>
+    </footer>
 </body>
 
 </html>
