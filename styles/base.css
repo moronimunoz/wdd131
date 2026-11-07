@@ -2,9 +2,9 @@
     --accent-color: white;
     --accent-color-hover: lightgreen;
     --primary: #1d4e75;
-    /* azul del header, footer y títulos de tarjeta */
+    /* blue to header, footer and cards title */
     --dark: #333;
-    /* gris oscuro del nav */
+    /* darkgray to the nav */
     --footer-date: yellow;
 }
 
@@ -29,7 +29,7 @@ h1 {
     font-family: "Montserrat", sans-serif;
 }
 
-/* ---------- HEADER Y NAV ---------- */
+/* ---------- HEADER AND NAV ---------- */
 header {
     background-color: var(--primary);
     color: white;
@@ -64,7 +64,7 @@ nav a:hover {
     text-decoration-color: var(--accent-color-hover);
 }
 
-/* ---------- MAIN: dos columnas ---------- */
+/* ---------- MAIN: TWO COLUMNS ---------- */
 main {
     max-width: 960px;
     margin: 0 auto;
@@ -76,13 +76,13 @@ main {
 
 main h1 {
     grid-column: 1 / -1;
-    /* el título ocupa todo el ancho */
+    /* title take the complete width */
     text-align: center;
     margin: 1rem 0;
     font-weight: 400;
 }
 
-/* ---------- TARJETAS ---------- */
+/* ---------- CARDS---------- */
 .card {
     border: 1px solid #bbb;
     border-radius: 8px;
@@ -103,7 +103,7 @@ main h1 {
     padding: 1rem;
     flex: 1;
     display: flow-root;
-    /* contiene los elementos con float */
+    /* contain the elements with float */
 }
 
 /* ---------- ABOUT ME ---------- */
@@ -145,7 +145,7 @@ main h1 {
 .resources .card-body {
     display: flex;
     align-items: center;
-    /* centra la lista verticalmente */
+    /* certer the vertical list */
 }
 
 .resources ul {
@@ -167,7 +167,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ---------- CELULARES ---------- */
+/* ---------- Phone ---------- */
 @media (max-width: 700px) {
     main {
         grid-template-columns: 1fr;
