@@ -36,7 +36,7 @@ header {
     text-align: center;
 }
 
-header span {
+#course-title {
     display: block;
     padding: 1rem;
     font-size: 1.4rem;
