@@ -1,39 +1,175 @@
+:root {
+    --accent-color: white;
+    --accent-color-hover: lightgreen;
+    --primary: #1d4e75;
+    /* azul del header, footer y títulos de tarjeta */
+    --dark: #333;
+    /* gris oscuro del nav */
+    --footer-date: yellow;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ---------- BASE ---------- */
 body {
-    font-family: "Redaction 70", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 400;
+    line-height: 1.6;
+    background-color: white;
+}
+
+header,
+nav,
+footer,
+h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* ---------- HEADER Y NAV ---------- */
+header {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
 }
 
 header span {
     display: block;
+    padding: 1rem;
+    font-size: 1.4rem;
 }
 
 nav {
-    background-color: gray;
+    background-color: var(--dark);
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    height: 100%;
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 0.7rem 1rem;
 }
 
 nav a {
     color: var(--accent-color);
     text-decoration: none;
-    font-family: Arial, sans-serif;
 }
 
 nav a:hover {
     text-decoration: underline;
-    text-decoration-color: yellow;
+    text-decoration-color: var(--accent-color-hover);
+}
+
+/* ---------- MAIN: dos columnas ---------- */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+main h1 {
+    grid-column: 1 / -1;
+    /* el título ocupa todo el ancho */
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: 400;
+}
+
+/* ---------- TARJETAS ---------- */
+.card {
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.7rem;
+}
+
+.card-body {
+    padding: 1rem;
+    flex: 1;
+    display: flow-root;
+    /* contiene los elementos con float */
+}
+
+/* ---------- ABOUT ME ---------- */
+.profile-image {
+    float: right;
+    width: 120px;
+    margin: 0 0 1rem 1rem;
+    border: 1px solid #999;
+}
+
+.about h3 {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 1rem auto;
+    width: 80%;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #bbb;
+}
+
+.flag {
+    float: left;
+    width: 140px;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.flag img {
+    width: 100%;
+    border: 1px solid #999;
+}
+
+.flag figcaption {
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* ---------- RESOURCES ---------- */
+.resources .card-body {
+    display: flex;
+    align-items: center;
+    /* centra la lista verticalmente */
+}
+
+.resources ul {
+    padding-left: 1.5rem;
+    line-height: 2;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+#lastModified {
+    color: var(--footer-date);
+    font-size: 0.85rem;
+}
+
+/* ---------- CELULARES ---------- */
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: 1fr;
+    }
 }
