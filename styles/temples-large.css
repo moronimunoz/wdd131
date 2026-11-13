@@ -9,7 +9,7 @@
         flex-wrap: nowrap;
     }
 
-    /* se oculta el botón hamburguesa */
+    /* the botton hidden hamburger */
     #menu {
         display: none;
     }
@@ -18,7 +18,7 @@
         width: auto;
     }
 
-    /* el menú siempre visible, en fila */
+    /* menu always visible, in rows */
     nav ul,
     nav ul.open {
         display: flex;
