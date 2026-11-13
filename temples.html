@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="ALbum of pictures of the temples of The Church of JesusChrist of latter-day Saints">
+        content="Album of pictures of the temples of The Church of Jesus Christ of Latter-day Saints">
     <meta name="author" content="Moroni Muñoz">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/temples.css">
     <link rel="stylesheet" href="styles/temples-large.css">
 
@@ -21,57 +22,69 @@
 <body>
     <header>
         <h1>Temple Album</h1>
+        <button id="menu" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
         <nav>
-            <ul>
-                <li>Home</li>
-                <li>Old</li>
-                <li>New</li>
-                <li>Large</li>
-                <li>Small</li>
+            <ul id="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Old</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Large</a></li>
+                <li><a href="#">Small</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <h1 class="album-title">Home</h1>
         <section class="album-list">
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
             <figure class="album-item">
-                <img src="images/argentina-flag.webp" alt="For this moment, I'm going to put my flag">
+                <img src="images/argentina-flag.webp" alt="Buenos Aires Temple, Argentina" loading="lazy" width="400"
+                    height="250">
                 <figcaption>Buenos Aires Temple, Argentina</figcaption>
             </figure>
         </section>
     </main>
+
     <footer>
         <p>&copy; <span id="currentyear"></span>. Moroni Muñoz. Argentina.</p>
         <p id="lastModified"></p>

@@ -1,4 +1,35 @@
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 560px) {
+    .album-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    header {
+        flex-wrap: nowrap;
+    }
+
+    /* se oculta el botón hamburguesa */
+    #menu {
+        display: none;
+    }
+
+    nav {
+        width: auto;
+    }
+
+    /* el menú siempre visible, en fila */
+    nav ul,
+    nav ul.open {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav a {
+        border-top: none;
+        padding: 0.5rem 1rem;
+    }
+
     .album-list {
         grid-template-columns: 1fr 1fr 1fr;
     }
