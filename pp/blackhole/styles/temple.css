@@ -5,31 +5,6 @@
 }
 
 @media screen and (min-width: 800px) {
-    header {
-        flex-wrap: nowrap;
-    }
-
-    /* the botton hidden hamburger */
-    #menu {
-        display: none;
-    }
-
-    nav {
-        width: auto;
-    }
-
-    /* menu always visible, in rows */
-    nav ul,
-    nav ul.open {
-        display: flex;
-        flex-direction: row;
-    }
-
-    nav a {
-        border-top: none;
-        padding: 0.5rem 1rem;
-    }
-
     .album-list {
         grid-template-columns: 1fr 1fr 1fr;
     }
