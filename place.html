@@ -27,32 +27,64 @@
         <p></p>
     </header>
     <main>
-        <img src="images/bird.webp" alt="brazil">
-        <section class="card resources">
-            <h2>Data</h2>
-            <div class="card-body">
-                Área: 8.510.418 km² (según el IBGE; algunas fuentes citan 8.515.767 km²)
-                Población: 203.080.756 (censo 2022)
-                Capital: Brasilia
-                Idiomas: Portugués
-                Moneda: Real brasileño (BRL)
-                Zona horaria: UTC-3 (hora de Brasilia). El país tiene cuatro husos, de UTC-2 a UTC-5.
-                Código telefónico: +55
-                TLD de Internet: .br
-            </div>
-        </section>
-        <section class="card resources">
-            <h2>Weather</h2>
-            <div class="card-body">
-                Temperatura: 19,9 °C
-                Condiciones: Nublado
-                Viento: sin dato
-                Sensación térmica: sin dato
-            </div>
-        </section>
+        <div class="hero">
+            <img src="images/birds-large.webp" srcset="images/birds-small.webp 480w, images/birds-large.webp 800w"
+                sizes="100vw" alt="Birds from Brazil">
+
+            <section class="card data">
+                <h2>Data</h2>
+                <dl>
+                    <dt>Area:</dt>
+                    <dd>8,510,418 km²</dd>
+
+                    <dt>Population:</dt>
+                    <dd>203,080,756</dd>
+
+                    <dt>Capital:</dt>
+                    <dd>Brasília</dd>
+
+                    <dt>Languages:</dt>
+                    <dd>Portuguese</dd>
+
+                    <dt>Currency:</dt>
+                    <dd>Brazilian real (BRL)</dd>
+
+                    <dt>Time zone:</dt>
+                    <dd>UTC-3</dd>
+
+                    <dt>Calling code:</dt>
+                    <dd>+55</dd>
+
+                    <dt>TLD:</dt>
+                    <dd>.br</dd>
+                </dl>
+            </section>
+            <section class="card weather">
+                <h2>Weather
+                    <svg class="weather-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        aria-hidden="true">
+                        <path
+                            d="M6.5,20q-2.27,0-3.89-1.57T1,14.58q0-1.95 1.18-3.47T5.25,9.15q0.63-2.3 2.5-3.72T12,4q2.93,0 4.96,2.04T19,11q1.73,0.2 2.86,1.49T23,15.5q0,1.88-1.31,3.19T18.5,20H6.5Zm0-2h12q1.05,0 1.78-0.73T21,15.5t-0.72-1.78T18.5,13H17V11q0-2.08-1.46-3.54T12,6Q9.93,6 8.46,7.46T7,11H6.5q-1.45,0-2.47,1.02T3,14.5t1.03,2.48T6.5,18ZM12,12Z" />
+                    </svg>
+                </h2>
+                <dl>
+                    <dt>Temperature:</dt>
+                    <dd id="temperature">10 °C</dd>
+
+                    <dt>Conditions:</dt>
+                    <dd>Cloudy</dd>
+
+                    <dt>Wind:</dt>
+                    <dd id="wind">5 km/h</dd>
+
+                    <dt>Wind Chill:</dt>
+                    <dd id="windchill"></dd>
+                </dl>
+            </section>
+        </div>
     </main>
     <footer>
-        <p>&copy; <span id="currentyear"></span>. Moroni Muñoz. Argentina.</p>
+        <p>🏵️🌸🌿&copy; <span id="currentyear"></span>. Moroni Muñoz. Argentina.🌿🌸🏵️</p>
         <p id="lastModified"></p>
     </footer>
 

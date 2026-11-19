@@ -20,10 +20,74 @@ header h1 {
     text-align: center;
     color: white;
     padding: 1rem;
-    background-color: red;
+    background-color: var(--primary);
 }
 
-header p {
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    /* the "anchor" for the cards */
+}
+
+
+.hero>img {
+    width: 100%;
+    display: block;
+    border-bottom: 5px solid crimson;
+    border-top: 10px solid var(--accent);
+}
+
+.hero section {
+    background-color: white;
+    padding: 10px;
+}
+
+.hero section h2 {
+    color: var(--text);
     padding: 0.5rem;
-    background-color: green;
+    text-align: center;
+}
+
+.hero dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 0.75rem;
+}
+
+.hero dt {
+    font-weight: bold;
+    text-align: right;
+}
+
+.hero dd {
+    margin: 0;
+}
+
+.hero .weather h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero .weather-icon {
+    width: 5rem;
+    height: 5rem;
+}
+
+.hero .card {
+    border-top: 1px solid gray;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: var(--primary);
+    color: #fff;
+}
+
+footer p {
+    margin: 0.25rem 0;
 }

@@ -1,0 +1,58 @@
+@media (min-width: 768px) {
+    .hero section {
+        position: absolute;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 8px;
+    }
+
+    .hero .card {
+        width: 20%;
+        min-width: 220px;
+        /* never narrower than this */
+    }
+
+    .hero>img {
+        width: 100%;
+        display: block;
+        border-bottom: none;
+    }
+
+    .hero section h2 {
+        background-color: var(--accent);
+        color: var(--text);
+        padding: 0.5rem;
+        margin-left: -20px;
+        margin-bottom: 3%;
+        /* shifts it to the left, sticking out past the card */
+        text-align: left;
+    }
+
+    .hero .data {
+        top: 5%;
+        left: 3%;
+    }
+
+    .hero .weather {
+        bottom: 5%;
+        right: 3%;
+    }
+
+    .hero section {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 8px;
+    }
+
+    .hero .weather h2 {
+        flex-direction: row;
+        /* icon next to the text */
+        justify-content: flex-start;
+        /* left-aligned */
+        background-color: var(--accent);
+    }
+
+    .hero .weather-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
