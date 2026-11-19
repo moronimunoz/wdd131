@@ -29,7 +29,6 @@ header h1 {
     /* the "anchor" for the cards */
 }
 
-
 .hero>img {
     width: 100%;
     display: block;
@@ -71,9 +70,14 @@ header h1 {
     gap: 1rem;
 }
 
+/* Mobile: hide the SVG and show the emoji */
 .hero .weather-icon {
-    width: 5rem;
-    height: 5rem;
+    display: none;
+}
+
+.hero .weather h2::after {
+    content: "⛅";
+    font-size: 5rem;
 }
 
 .hero .card {
