@@ -1,0 +1,29 @@
+:root {
+    --primary: #3b0a66;
+    --primary-light: #5a1e94;
+    --accent: #f2c14e;
+    --bg: #f4f0f9;
+    --text: #222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+}
+
+header h1 {
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    background-color: red;
+}
+
+header p {
+    padding: 0.5rem;
+    background-color: green;
+}
