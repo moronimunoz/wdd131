@@ -88,9 +88,25 @@ main>h1 {
     padding: 1rem;
 }
 
-/* Capitalized accent-colored label for the object type */
-.type {
-    text-transform: capitalize;
-    color: var(--accent);
-    font-weight: 700;
+/* Name and star button on the same row */
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
 }
+
+.fav-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Attribute selector: styles the button only when aria-pressed="true" */
+.fav-btn[aria-pressed="true"] {
+    color: #ffd166;
+}
+

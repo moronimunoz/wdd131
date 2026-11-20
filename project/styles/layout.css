@@ -174,6 +174,29 @@ main {
     font-weight: 700;
 }
 
+/* ---------- Favorites list (home page) ---------- */
+#list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+#list li {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+/* Message shown when there are no favorites */
+#list .empty {
+    background: none;
+    padding: 0;
+}
+
 /* ==========================================================
    Desktop overrides (768px and up)
    Must stay at the END so these rules win over the base ones
