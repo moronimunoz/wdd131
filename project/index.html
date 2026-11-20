@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <script src="scripts/common.js" defer></script>
+    <script src="scripts/data.js" defer></script>
+    <script src="scripts/index.js" defer></script>
 
     <title>Atlas of the Universe</title>
 </head>
@@ -40,37 +42,40 @@
     <main>
 
         <section class="hero">
-            <img src="images/hero.png" alt="Stars">
-            <h1>Explore the Universe</h1>
-            <p>Planets, stars, galaxies in one place</p>
-            <button type="submit">See Category</button>
+            <img src="images/hero.webp" alt="Starry sky">
+            <div class="hero-content">
+                <h1>Explore the Universe</h1>
+                <p>Planets, stars, galaxies in one place</p>
+                <a class="btn" href="catalog.html">See Catalog</a>
+            </div>
         </section>
 
         <section class="daydata">
             <h2>Day Data</h2>
+            <div id="day-data"></div>
         </section>
 
         <section class="favorites">
             <h2>Your Favorites</h2>
-            <div>
-                <ul id="list"></ul>
-            </div>
+            <ul id="list"></ul>
         </section>
 
         <section class="featured">
             <h2>Featured</h2>
-            <figure>
-                <img src="images/planet/eath.webp" alt="The Eath">
-                <figcaption>Planets</figcaption>
-            </figure>
-            <figure>
-                <img src="images/sun/sun.webp" alt="March">
-                <figcaption>Stars</figcaption>
-            </figure>
-            <figure>
-                <img src="images/galaxy/galaxy.webp" alt="Galaxy">
-                <figcaption>Galaxies</figcaption>
-            </figure>
+            <div class="featured-grid">
+                <figure>
+                    <img src="images/planet/earth.webp" alt="The Earth" loading="lazy">
+                    <figcaption>Planets</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/sun/sun.webp" alt="The Sun" loading="lazy">
+                    <figcaption>Stars</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/galaxy/galaxy.webp" alt="A spiral galaxy" loading="lazy">
+                    <figcaption>Galaxies</figcaption>
+                </figure>
+            </div>
         </section>
 
     </main>
