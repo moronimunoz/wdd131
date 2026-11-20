@@ -35,3 +35,11 @@ function toggleFavorite(id) {
 
     return isNowFavorite;
 }
+
+// ---------- Observations (saved in localStorage) ----------
+
+// Read the saved observations. getItem returns null the first time,
+// so "|| []" falls back to an empty array
+function getObservations() {
+    return JSON.parse(localStorage.getItem("observations")) || [];
+}

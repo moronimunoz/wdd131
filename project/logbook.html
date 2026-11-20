@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/form.css">
+
     <script src="scripts/common.js" defer></script>
+    <script src="scripts/data.js" defer></script>
     <script src="scripts/logbook.js" defer></script>
 
     <title>Atlas of the Universe</title>
@@ -40,48 +42,53 @@
     </header>
 
     <main>
-        <form class="contact-form" action="logbook-review.html" method="get">
-            <h2>Observation log</h2>
+        <h1>Observation log</h1>
+    
+        <form id="logbook-form" class="contact-form" action="logbook-review.html" method="get">
+    
             <div class="field">
-                <label for="miInput">Choose or Write:</label>
-                <input list="options" id="miInput" name="miInput">
-
-                <datalist id="options">
-                    <option value="option 1">
-                    <option value="option 2">
-                    <option value="option 3">
-                </datalist>
+                <label for="object">Object observed</label>
+                <!-- The options are added by logbook.js from universeObjects -->
+                <select id="object" name="object" required></select>
             </div>
-
+    
             <div class="field">
-                <label for="ob-date">Observation Date:</label>
-                <input type="date" id="ob-date" name="od-date" min="1900-01-01" max="2026-12-31">
+                <label for="ob-date">Observation date</label>
+                <!-- The default value and the max date are set by logbook.js -->
+                <input type="date" id="ob-date" name="date" required>
             </div>
-
-            <!-- falta calificaciones -->
-
-            <div class="field purpose" role="group" aria-labelledby="purpose-label">
-                <span id="purpose-label">Equipment used</span>
+    
+            <fieldset class="field">
+                <legend>Equipment used</legend>
                 <div class="options">
-                    <label><input type="checkbox" id="box1" name="purpose" value="Ojo desnudo">Naked eye</label>
-                    <label><input type="checkbox" id="box2" name="purpose" value="Binoculares">Binoculars
-                    </label>
-                    <label><input type="checkbox" id="box3" name="purpose" value="Telescopio">Telescope</label>
+                    <label><input type="checkbox" name="equipment" value="Naked eye"> Naked eye</label>
+                    <label><input type="checkbox" name="equipment" value="Binoculars"> Binoculars</label>
+                    <label><input type="checkbox" name="equipment" value="Telescope"> Telescope</label>
                 </div>
+            </fieldset>
+    
+            <fieldset class="field">
+                <legend>Rating (1 = poor, 5 = excellent)</legend>
+                <div class="options">
+                    <label><input type="radio" name="rating" value="1" required> 1</label>
+                    <label><input type="radio" name="rating" value="2" required> 2</label>
+                    <label><input type="radio" name="rating" value="3" required> 3</label>
+                    <label><input type="radio" name="rating" value="4" required> 4</label>
+                    <label><input type="radio" name="rating" value="5" required> 5</label>
+                </div>
+            </fieldset>
+    
+            <div class="field">
+                <label for="message">Comments (optional)</label>
+                <textarea id="message" name="message" rows="4" maxlength="300" placeholder="What did you see?"></textarea>
             </div>
-
-            <div class="field message">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Type here"></textarea>
-            </div>
-
+    
             <div class="field">
                 <label for="name">Your name (optional)</label>
-                <input type="text" id="name" name="name" autocomplete="name" placeholder="Placeholder">
+                <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name">
             </div>
-
-            <button type="submit">Observation recorded</button>
-
+    
+            <button type="submit">Record observation</button>
         </form>
     </main>
 

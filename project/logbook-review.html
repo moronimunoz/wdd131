@@ -15,7 +15,11 @@
 
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/form.css">
+
     <script src="scripts/common.js" defer></script>
+    <script src="scripts/data.js" defer></script>
+    <script src="scripts/logbook-review.js" defer></script>
 
     <title>Atlas of the Universe</title>
 </head>
@@ -38,7 +42,42 @@
     </header>
 
     <main>
-        <!-- falta campo que viene del formulario-->
+        <h1>Observation summary</h1>
+
+        <!-- dl = description list: pairs of term (dt) and description (dd) -->
+        <section id="review" class="review-card">
+            <dl>
+                <dt>Object</dt>
+                <dd id="r-object"></dd>
+
+                <dt>Date</dt>
+                <dd id="r-date"></dd>
+
+                <dt>Equipment</dt>
+                <dd id="r-equipment"></dd>
+
+                <dt>Rating</dt>
+                <dd id="r-rating"></dd>
+
+                <dt>Comments</dt>
+                <dd id="r-message"></dd>
+
+                <dt>Observer</dt>
+                <dd id="r-name"></dd>
+            </dl>
+        </section>
+
+        <!-- Shown only when there is no saved observation -->
+        <p id="review-empty" hidden>
+            No observation found yet. <a href="logbook.html">Record your first one</a>.
+        </p>
+
+        <p id="review-total"></p>
+
+        <div class="review-actions">
+            <a class="btn" href="logbook.html">Record another</a>
+            <a href="catalog.html">Back to the catalog</a>
+        </div>
     </main>
 
     <footer>
