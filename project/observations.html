@@ -15,7 +15,8 @@
 
     <link rel="stylesheet" href="styles/universe.css">
     <link rel="stylesheet" href="styles/universe-large.css">
-    <script src="scripts/universe.js" defer></script>
+    <script src="scripts/common.js" defer></script>
+    <script src="scripts/observation.js" defer></script>
 
     <title>Atlas of the Universe</title>
 </head>
@@ -32,16 +33,16 @@
             <ul id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="objets.html">Category</a></li>
-                <li><a href="#">Binnecle</a></li>
+                <li><a href="#">Logbook</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <form class="contact-form" action="#" method="post">
-            <h2>Bitácora de observación</h2>
+            <h2>Observation log</h2>
             <div class="field">
-                <label for="miInput">Elige o escribe:</label>
+                <label for="miInput">Choose or Write:</label>
                 <input list="options" id="miInput" name="miInput">
 
                 <datalist id="options">
@@ -52,20 +53,19 @@
             </div>
 
             <div class="field">
-                <label for="ob-date">Obserbation Date:</label>
-                <input type="date" id="ob-date" name="cumpleob-dateanos" min="1900-01-01" max="2026-12-31">
+                <label for="ob-date">Observation Date:</label>
+                <input type="date" id="ob-date" name="od-date" min="1900-01-01" max="2026-12-31">
             </div>
 
             <!-- falta calificaciones -->
 
             <div class="field purpose" role="group" aria-labelledby="purpose-label">
-                <span id="purpose-label">Message Purpose</span>
+                <span id="purpose-label">Equipment used</span>
                 <div class="options">
-                    <label><input type="checkbox" id="box1" name="purpose" value="Ojo desnudo">Ojo
-                        desnudo</label>
-                    <label><input type="checkbox" id="box2" name="purpose" value="Binoculares">Binoculares
+                    <label><input type="checkbox" id="box1" name="purpose" value="Ojo desnudo">Naked eye</label>
+                    <label><input type="checkbox" id="box2" name="purpose" value="Binoculares">Binoculars
                     </label>
-                    <label><input type="checkbox" id="box3" name="purpose" value="Telescopio">Telescopio</label>
+                    <label><input type="checkbox" id="box3" name="purpose" value="Telescopio">Telescope</label>
                 </div>
             </div>
 
@@ -79,13 +79,13 @@
                 <input type="text" id="name" name="name" autocomplete="name" placeholder="Placeholder">
             </div>
 
-            <button type="recorded">Observation recorded</button>
+            <button type="submit">Observation recorded</button>
 
         </form>
     </main>
 
     <footer>
-        <p>&copy; 2026 Moroni Muñoz • Last modification: <span id="lastmofication"></span></p>
+        <p>&copy; 2026 Moroni Muñoz • Last modification: <span id="last-modified"></span></p>
     </footer>
 </body>
 
