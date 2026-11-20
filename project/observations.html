@@ -38,6 +38,50 @@
     </header>
 
     <main>
+        <form class="contact-form" action="#" method="post">
+            <h2>Bitácora de observación</h2>
+            <div class="field">
+                <label for="miInput">Elige o escribe:</label>
+                <input list="options" id="miInput" name="miInput">
+
+                <datalist id="options">
+                    <option value="option 1">
+                    <option value="option 2">
+                    <option value="option 3">
+                </datalist>
+            </div>
+
+            <div class="field">
+                <label for="ob-date">Obserbation Date:</label>
+                <input type="date" id="ob-date" name="cumpleob-dateanos" min="1900-01-01" max="2026-12-31">
+            </div>
+
+            <!-- falta calificaciones -->
+
+            <div class="field purpose" role="group" aria-labelledby="purpose-label">
+                <span id="purpose-label">Message Purpose</span>
+                <div class="options">
+                    <label><input type="checkbox" id="box1" name="purpose" value="Ojo desnudo">Ojo
+                        desnudo</label>
+                    <label><input type="checkbox" id="box2" name="purpose" value="Binoculares">Binoculares
+                    </label>
+                    <label><input type="checkbox" id="box3" name="purpose" value="Telescopio">Telescopio</label>
+                </div>
+            </div>
+
+            <div class="field message">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Type here"></textarea>
+            </div>
+
+            <div class="field">
+                <label for="name">Your name (optional)</label>
+                <input type="text" id="name" name="name" autocomplete="name" placeholder="Placeholder">
+            </div>
+
+            <button type="recorded">Observation recorded</button>
+
+        </form>
     </main>
 
     <footer>
