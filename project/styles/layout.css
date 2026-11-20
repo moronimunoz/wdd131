@@ -1,8 +1,15 @@
+/* ==========================================================
+   layout.css - structure shared by all pages
+   Mobile-first: base styles first, desktop overrides at the END
+   ========================================================== */
+
+/* ---------- Header and navigation ---------- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    /* lets the nav drop below the logo on mobile */
     padding: 1rem;
     background: var(--surface);
 }
@@ -14,6 +21,7 @@ header h2 {
     font-size: 1.1rem;
 }
 
+/* Hamburger button (hidden on desktop, see media query) */
 #menu {
     background: none;
     border: 1px solid var(--text);
@@ -28,6 +36,7 @@ nav {
     width: 100%;
 }
 
+/* Menu is hidden on mobile until common.js adds the "open" class */
 #nav-list {
     display: none;
     list-style: none;
@@ -44,78 +53,46 @@ nav {
     text-decoration: none;
 }
 
+/* ---------- Footer ---------- */
 footer {
     padding: 1rem;
     text-align: center;
     background: var(--surface);
 }
 
-@media (min-width: 768px) {
-    #menu {
-        display: none;
-    }
-
-    nav {
-        width: auto;
-    }
-
-    #nav-list {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    #nav-list a {
-        padding: 0;
-    }
-
-    .hero img {
-        height: 420px;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content {
-        padding: 3rem;
-    }
-
-    .featured-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    #day-data {
-        grid-template-columns: 300px 1fr;
-        align-items: center;
-    }
-}
-
-
+/* ---------- Main content wrapper ---------- */
 main {
     max-width: 1100px;
     margin: 0 auto;
+    /* centers the content */
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    /* space between sections */
 }
 
-/* Hero */
+/* ---------- Hero (home page) ---------- */
 .hero {
     position: relative;
+    /* reference point for the absolute text layer */
     border-radius: 12px;
     overflow: hidden;
+    /* clips the image to the rounded corners */
 }
 
 .hero img {
     width: 100%;
     height: 320px;
     object-fit: cover;
+    /* fills the box without stretching the image */
 }
 
+/* Text layer placed on top of the hero image */
 .hero-content {
     position: absolute;
     inset: 0;
+    /* shortcut for top/right/bottom/left: 0 */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,6 +100,7 @@ main {
     gap: 0.75rem;
     padding: 1.5rem;
     background: rgba(11, 13, 26, 0.55);
+    /* dark overlay so the text is readable */
 }
 
 .hero h1 {
@@ -139,7 +117,7 @@ main {
     border-radius: 8px;
 }
 
-/* Cards */
+/* ---------- Home page cards ---------- */
 .daydata,
 .favorites {
     background: var(--surface);
@@ -147,12 +125,35 @@ main {
     border-radius: 12px;
 }
 
+/* "Day Data" content: stacked on mobile, two columns on desktop */
+#day-data {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+#day-data img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Object type label, shared by the home page and the catalog */
+.type {
+    text-transform: capitalize;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* ---------- Featured section ---------- */
 .featured h2 {
     margin-bottom: 0.75rem;
 }
 
 .featured-grid {
     display: grid;
+    /* one column by default (mobile) */
     gap: 1rem;
 }
 
@@ -173,21 +174,51 @@ main {
     font-weight: 700;
 }
 
-#day-data {
-    display: grid;
-    gap: 1rem;
-    margin-top: 0.75rem;
-}
+/* ==========================================================
+   Desktop overrides (768px and up)
+   Must stay at the END so these rules win over the base ones
+   ========================================================== */
+@media (min-width: 768px) {
 
-#day-data img {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+    /* Navigation: hide the hamburger, show the menu in a row */
+    #menu {
+        display: none;
+    }
 
-.type {
-    text-transform: capitalize;
-    color: var(--accent);
-    font-weight: 700;
+    nav {
+        width: auto;
+    }
+
+    #nav-list {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    #nav-list a {
+        padding: 0;
+    }
+
+    /* Bigger hero */
+    .hero img {
+        height: 420px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        padding: 3rem;
+    }
+
+    /* Three columns for the featured cards */
+    .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Image on the left, text on the right */
+    #day-data {
+        grid-template-columns: 300px 1fr;
+        align-items: center;
+    }
 }

@@ -15,7 +15,11 @@
 
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/catalog.css">
+    
     <script src="scripts/common.js" defer></script>
+    <script src="scripts/data.js" defer></script>
+    <script src="scripts/catalog.js" defer></script>
 
     <title>Atlas of the Universe</title>
 </head>
@@ -38,6 +42,23 @@
     </header>
 
     <main>
+        <h1>Catalog</h1>
+
+        <div class="filters" role="group" aria-label="Filter by type">
+            <button type="button" class="filter-btn active" data-type="all">All</button>
+            <button type="button" class="filter-btn" data-type="planet">Planets</button>
+            <button type="button" class="filter-btn" data-type="star">Stars</button>
+            <button type="button" class="filter-btn" data-type="galaxy">Galaxies</button>
+        </div>
+
+        <div class="search-field">
+            <label for="search">Search by name</label>
+            <input type="search" id="search" placeholder="Type a name...">
+        </div>
+
+        <p id="no-results" hidden>No objects match your search.</p>
+
+        <div id="catalog-grid" class="card-grid"></div>
     </main>
 
     <footer>
