@@ -1,4 +1,37 @@
+:root {
+    --bg: #0b0d1a;
+    --surface: #161a2e;
+    --text: #e3e3e3;
+    --accent: #7c9cff;
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--accent);
 }
