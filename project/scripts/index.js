@@ -1,16 +1,22 @@
-// Containers where the content will be rendered
+// ==========================================================
+// index.js - home page: "Day Data" and "Your Favorites"
+// (uses universeObjects from data.js and getFavorites from common.js)
+// ==========================================================
+
+// ---------- Elements from the page ----------
 const dayData = document.querySelector("#day-data");
 const favoritesList = document.querySelector("#list");
 
-// Pick one object per day: the day of the month (1-31) modulo the array length
-// always gives a valid index between 0 and length - 1
+// ---------- Day Data ----------
+// Pick one object per day: the day of the month (1-31) divided by the
+// number of objects. The remainder (%) is always a valid array index
 function getDayObject() {
     const dayNumber = new Date().getDate();
     const index = dayNumber % universeObjects.length;
     return universeObjects[index];
 }
 
-// Build the card HTML with a template literal and insert it in the page
+// Build the card HTML with a template literal and show it
 function showDayData() {
     const obj = getDayObject();
 
@@ -23,29 +29,29 @@ function showDayData() {
         </div>`;
 }
 
-// Show the saved favorites, or a hint when there are none yet
+// ---------- Favorites ----------
+// Show the saved favorites, or a message when there are none yet
 function showFavorites() {
-    // getFavorites() comes from common.js and returns the saved ids
+    // Ids saved by the star buttons in the catalog
     const favoriteIds = getFavorites();
 
     // Keep only the objects whose id is in the saved list
     const favoriteObjects = universeObjects.filter(obj => favoriteIds.includes(obj.id));
 
-    // Nothing saved yet: show a message with a link to the catalog and stop
     if (favoriteObjects.length === 0) {
+        // Nothing saved yet: show a message with a link to the catalog
         favoritesList.innerHTML = `
             <li class="empty">No favorites yet. Visit the <a href="catalog.html">catalog</a> to add some.</li>`;
-        return;
+    } else {
+        // One list item for each favorite
+        favoritesList.innerHTML = favoriteObjects.map(obj => `
+            <li>
+                <span>${obj.name}</span>
+                <span class="type">${obj.type}</span>
+            </li>`).join("");
     }
-
-    // One list item per favorite
-    favoritesList.innerHTML = favoriteObjects.map(obj => `
-        <li>
-            <span>${obj.name}</span>
-            <span class="type">${obj.type}</span>
-        </li>`).join("");
 }
 
-// Run once when the page loads
+// ---------- Start ----------
 showDayData();
 showFavorites();

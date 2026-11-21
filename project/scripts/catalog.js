@@ -1,23 +1,34 @@
+// ==========================================================
+// catalog.js - catalog page: cards, type filters, search and favorites
+// (uses universeObjects from data.js and the favorites functions from common.js)
+// ==========================================================
+
 // ---------- Elements from the page ----------
-const grid = document.querySelector("#catalog-grid");          // where the cards go
-const searchInput = document.querySelector("#search");          // text search field
-const filterButtons = document.querySelectorAll(".filter-btn"); // all filter buttons
-const noResults = document.querySelector("#no-results");        // "no matches" message
+const grid = document.querySelector("#catalog-grid");           // where the cards go
+const searchInput = document.querySelector("#search");           // text search field
+const filterButtons = document.querySelectorAll(".filter-btn");  // all filter buttons
+const noResults = document.querySelector("#no-results");         // "no matches" message
 
 // ---------- State ----------
-// Remembers which type filter is selected ("all", "planet", "star", "galaxy")
+// Remembers which type is selected: "all", "planet", "star" or "galaxy"
 let currentType = "all";
 
 // ---------- Rendering ----------
 // Turn a list of objects into HTML cards and show them in the grid
 function renderCards(list) {
-    // Ids already saved, so each star starts in the right state
+    // Ids saved as favorites, so every star starts in the right state
     const favorites = getFavorites();
 
-    // map() transforms each object into a string of HTML
-    // join("") glues all the strings together (without commas between them)
+    // map() turns each object into a string of HTML
+    // join("") glues all the strings together without commas between them
     grid.innerHTML = list.map(obj => {
         const isFavorite = favorites.includes(obj.id);
+
+        // Filled star for favorites, empty star for the rest
+        let star = "☆";
+        if (isFavorite) {
+            star = "★";
+        }
 
         return `
         <article class="card">
@@ -26,7 +37,7 @@ function renderCards(list) {
                 <div class="card-title">
                     <h2>${obj.name}</h2>
                     <button type="button" class="fav-btn" data-id="${obj.id}"
-                        aria-pressed="${isFavorite}" aria-label="Favorite ${obj.name}">${isFavorite ? "★" : "☆"}</button>
+                        aria-pressed="${isFavorite}" aria-label="Favorite ${obj.name}">${star}</button>
                 </div>
                 <p class="type">${obj.type}</p>
                 <p>${obj.fact}</p>
@@ -36,32 +47,63 @@ function renderCards(list) {
 
     // Show the "no results" message only when the list is empty
     noResults.hidden = list.length > 0;
+
+    // The buttons were just created, so they need their click events again
+    addStarEvents();
+}
+
+// ---------- Favorites ----------
+// Give every star button a click event that saves or removes the favorite
+function addStarEvents() {
+    const starButtons = document.querySelectorAll(".fav-btn");
+
+    starButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Read the object id stored in the data-id attribute of the button
+            const id = button.getAttribute("data-id");
+
+            // Save or remove it. The function tells us if it is now a favorite
+            const isFavorite = toggleFavorite(id);
+
+            // Update the button so it matches the new state
+            button.setAttribute("aria-pressed", isFavorite);
+            if (isFavorite) {
+                button.textContent = "★";
+            } else {
+                button.textContent = "☆";
+            }
+        });
+    });
 }
 
 // ---------- Filtering ----------
-// Combine the type filter and the search text, then redraw the cards
+// Combine the type filter and the search text, then draw the cards again
 function applyFilters() {
-    // trim() removes extra spaces, toLowerCase() makes the search case-insensitive
+    // trim() removes extra spaces and toLowerCase() ignores capital letters
     const text = searchInput.value.trim().toLowerCase();
 
-    // filter() keeps only the objects where the condition is true:
-    // the type matches (or "all" is selected) AND the name contains the search text
-    const result = universeObjects.filter(obj =>
-        (currentType === "all" || obj.type === currentType) &&
-        obj.name.toLowerCase().includes(text)
-    );
+    // filter() keeps only the objects for which we return true
+    const result = universeObjects.filter(obj => {
+        // True when "all" is selected or the object has the selected type
+        const matchesType = currentType === "all" || obj.type === currentType;
+
+        // True when the name contains the text typed in the search field
+        const matchesText = obj.name.toLowerCase().includes(text);
+
+        return matchesType && matchesText;
+    });
 
     renderCards(result);
 }
 
 // ---------- Events ----------
-// When a filter button is clicked: save its type, highlight it, and redraw
+// When a filter button is clicked: save its type, highlight it and redraw
 filterButtons.forEach(button => {
     button.addEventListener("click", () => {
-        // dataset.type reads the data-type attribute from the HTML
-        currentType = button.dataset.type;
+        // Read the type stored in the data-type attribute of the button
+        currentType = button.getAttribute("data-type");
 
-        // Remove the "active" style from all buttons, then add it to the clicked one
+        // Remove the "active" class from all the buttons, then add it to this one
         filterButtons.forEach(b => b.classList.remove("active"));
         button.classList.add("active");
 
@@ -69,22 +111,8 @@ filterButtons.forEach(button => {
     });
 });
 
-// "input" fires on every keystroke in the search field
+// The "input" event runs every time the text in the search field changes
 searchInput.addEventListener("input", applyFilters);
-
-// Event delegation: one listener on the grid handles every star button.
-// The cards are recreated on each filter, so listeners placed directly
-// on the buttons would be lost
-grid.addEventListener("click", (event) => {
-    // closest() finds the star button even if the click landed inside it
-    const button = event.target.closest(".fav-btn");
-    if (!button) return; // the click was somewhere else in the grid
-
-    // Save or remove the favorite, then update only this button
-    const isFavorite = toggleFavorite(button.dataset.id);
-    button.setAttribute("aria-pressed", isFavorite);
-    button.textContent = isFavorite ? "★" : "☆";
-});
 
 // ---------- Start ----------
 // Draw all the cards when the page loads

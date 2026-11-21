@@ -1,3 +1,15 @@
+// ==========================================================
+// data.js - the data of the whole site
+// Every object in the array has these properties:
+//   id    - unique name without spaces (used to save favorites and observations)
+//   name  - name shown on the page
+//   type  - "planet", "star" or "galaxy" (used by the catalog filters)
+//   fact  - short curious fact
+//   image - path to the image file
+//   alt   - text that describes the image
+// To add a new object, copy one block, change the values and keep the comma
+// between objects (but not after the last one)
+// ==========================================================
 
 const universeObjects = [
     // ==================== PLANETS ====================

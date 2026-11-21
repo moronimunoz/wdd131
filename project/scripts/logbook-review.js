@@ -1,45 +1,92 @@
+// ==========================================================
+// logbook-review.js - shows a summary of the last saved observation
+// (uses universeObjects from data.js and getObservations from common.js)
+// ==========================================================
+
 // ---------- Elements from the page ----------
 const reviewCard = document.querySelector("#review");
 const emptyMessage = document.querySelector("#review-empty");
 const totalText = document.querySelector("#review-total");
 
-// ---------- Rendering ----------
-function showReview() {
-    const observations = getObservations();
+const objectText = document.querySelector("#r-object");
+const dateText = document.querySelector("#r-date");
+const equipmentText = document.querySelector("#r-equipment");
+const ratingText = document.querySelector("#r-rating");
+const messageText = document.querySelector("#r-message");
+const nameText = document.querySelector("#r-name");
 
-    // Nothing saved yet: hide the summary and show the hint instead
-    if (observations.length === 0) {
-        reviewCard.hidden = true;
-        totalText.hidden = true;
-        emptyMessage.hidden = false;
-        return;
+// ---------- Rendering ----------
+// Nothing saved yet: hide the summary and show a hint
+function showEmptyState() {
+    reviewCard.hidden = true;
+    totalText.hidden = true;
+    emptyMessage.hidden = false;
+}
+
+// Build the rating as stars, for example 4 -> "★★★★☆"
+function getStars(rating) {
+    let stars = "";
+
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars = `${stars}★`;
+        } else {
+            stars = `${stars}☆`;
+        }
     }
 
+    return stars;
+}
+
+// Fill the summary with the last observation of the list
+function showObservation(observations) {
     // The last item of the array is the observation just recorded
     const last = observations[observations.length - 1];
 
-    // find() returns the first object whose id matches (or undefined if none does)
-    const obj = universeObjects.find(item => item.id === last.objectId);
+    // The observation only stores the object id, so we look for the full object
+    const matches = universeObjects.filter(item => item.id === last.objectId);
+    const obj = matches[0]; // undefined if nothing matched
 
-    // textContent is used instead of innerHTML for the user's text,
-    // so anything typed in the form is shown as plain text and never run as HTML
-    document.querySelector("#r-object").textContent = obj ? obj.name : "Unknown object";
-    document.querySelector("#r-date").textContent = last.date;
+    // textContent shows the text as it is. We use it instead of innerHTML
+    // because the user typed some of this text and it must never run as HTML
+    if (obj) {
+        objectText.textContent = obj.name;
+    } else {
+        objectText.textContent = "Unknown object";
+    }
 
-    // join() turns the array into a readable text; an empty array means nothing was checked
-    document.querySelector("#r-equipment").textContent =
-        last.equipment.length > 0 ? last.equipment.join(", ") : "Not specified";
+    dateText.textContent = last.date;
 
-    // repeat() writes a character several times: 4 filled stars + 1 empty star
-    document.querySelector("#r-rating").textContent =
-        `${"★".repeat(last.rating)}${"☆".repeat(5 - last.rating)} (${last.rating}/5)`;
+    // join() turns the equipment array into one text separated by commas
+    if (last.equipment.length > 0) {
+        equipmentText.textContent = last.equipment.join(", ");
+    } else {
+        equipmentText.textContent = "Not specified";
+    }
 
-    // Optional fields: show a fallback when the user left them empty
-    document.querySelector("#r-message").textContent = last.message || "No comments";
-    document.querySelector("#r-name").textContent = last.name || "Anonymous";
+    ratingText.textContent = `${getStars(last.rating)} (${last.rating}/5)`;
+
+    // Optional fields: use a default text when the user left them empty
+    if (last.message === "") {
+        messageText.textContent = "No comments";
+    } else {
+        messageText.textContent = last.message;
+    }
+
+    if (last.name === "") {
+        nameText.textContent = "Anonymous";
+    } else {
+        nameText.textContent = last.name;
+    }
 
     totalText.textContent = `Total observations recorded: ${observations.length}`;
 }
 
 // ---------- Start ----------
-showReview();
+const observations = getObservations();
+
+if (observations.length === 0) {
+    showEmptyState();
+} else {
+    showObservation(observations);
+}
