@@ -1,3 +1,7 @@
+/* ==========================================================
+   catalog.css - styles for the catalog page
+   ========================================================== */
+
 /* ---------- Page title ---------- */
 main>h1 {
     font-size: 1.8rem;
@@ -68,6 +72,8 @@ main>h1 {
 }
 
 .card {
+    position: relative;
+    /* reference point for the absolute star button */
     background: var(--surface);
     border-radius: 12px;
     overflow: hidden;
@@ -88,25 +94,37 @@ main>h1 {
     padding: 1rem;
 }
 
-/* Name and star button on the same row */
+/* The title keeps the full width of the card, so long names never get squeezed */
 .card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
+    display: block;
 }
 
+/* ---------- Favorite star button ---------- */
+/* Placed in the top-right corner, over the image */
 .fav-btn {
-    background: none;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 13, 26, 0.65);
+    /* dark circle so the star is visible on any image */
+    color: var(--text);
     border: none;
-    color: var(--accent);
-    font-size: 1.6rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
 }
 
-/* Attribute selector: styles the button only when aria-pressed="true" */
+.fav-btn:hover {
+    background: rgba(11, 13, 26, 0.85);
+}
+
+/* Attribute selector: styles the button only when aria-pressed="true" (saved) */
 .fav-btn[aria-pressed="true"] {
     color: #ffd166;
 }
-
